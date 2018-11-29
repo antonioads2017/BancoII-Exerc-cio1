@@ -1,0 +1,19 @@
+.title{
+    font-size:15px;
+    font-family: 'Comic Sans MS';
+}
+.cidade{
+    font-size:25px;
+    font-family: 'Comic Sans MS';
+}
+.estado{
+    font-size: 18px;
+    font-family: 'Comic Sans MS';
+}
+.row{
+    flex-direction: row;
+    justify-content: center;
+}
+.dados{
+    font-size:15px;
+}
