@@ -1,4 +1,4 @@
-package com.ifpb.model.databe;
+package com.ifpb.model.databese;
 
 import java.io.IOException;
 import java.io.InputStream;

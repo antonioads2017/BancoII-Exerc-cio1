@@ -1,4 +1,4 @@
-package com.ifpb.model.databe;
+package com.ifpb.model.databese;
 
 public class ConnectionException extends Exception {
 
