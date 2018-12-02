@@ -6,20 +6,30 @@ public class Cidade {
 
     private String nome;
     private Integer idEstado;
-    private Integer população;
+    private Integer populacao;
     private float area;
     private Geometry geom;
+    private String svg;
 
-    public Cidade(){
+    public Cidade() {
 
     }
 
-    public Cidade(String nome, Integer idEstado, Integer população, float area, Geometry geom) {
+    public Cidade(String nome, Integer idEstado, Integer populacao, float area, Geometry geom, String svg) {
         this.nome = nome;
         this.idEstado = idEstado;
-        this.população = população;
+        this.populacao = populacao;
         this.area = area;
         this.geom = geom;
+        this.svg = svg;
+    }
+
+    public String getSvg() {
+        return svg;
+    }
+
+    public void setSvg(String svg) {
+        this.svg = svg;
     }
 
     public String getNome() {
@@ -38,12 +48,12 @@ public class Cidade {
         this.idEstado = idEstado;
     }
 
-    public Integer getPopulação() {
-        return população;
+    public Integer getPopulacao() {
+        return populacao;
     }
 
-    public void setPopulação(Integer população) {
-        this.população = população;
+    public void setPopulacao(Integer populacao) {
+        this.populacao = populacao;
     }
 
     public float getArea() {
@@ -62,12 +72,20 @@ public class Cidade {
         this.geom = geom;
     }
 
+    public float getPerimetro(){
+        return (float) geom.getLength();
+    }
+
+    public float getDencidade(){
+        return populacao/area;
+    }
+
     @Override
     public String toString() {
         return "Cidade{" +
                 "nome='" + nome + '\'' +
                 ", idEstado=" + idEstado +
-                ", população=" + população +
+                ", populacao=" + populacao +
                 ", area=" + area +
                 ", geom=" + geom +
                 '}';

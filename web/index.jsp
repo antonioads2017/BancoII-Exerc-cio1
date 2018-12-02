@@ -16,7 +16,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="${pageContext.request.contextPath}/css/style.css"/>
     <script src="js/jQuery 3.3.1.js"></script>
-    <script src="js/main.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
           integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
           crossorigin="anonymous">
@@ -24,7 +23,7 @@
 
 <body>
 <center><label class="title">Atividade SVG e JTS</label></center>
-<form id="form2" action="inicio" method="POST" class="row"><br>
+<form id="form2" action="inicio" method="POST" class="row" style="margin-top: 15px;"><br>
     <div class="col-sm-3">
 
         <ul class="list-group">
@@ -32,7 +31,7 @@
                 <center><label class="cidade">Cidade 1</label></center>
                 <br>
                 <label class="box">Estado</label>
-                <select name="estado1" class="form-control" onchange="this.form.submit()">
+                <select name="estado1" class="form-control" onchange="gerarParam('Atualizar');this.form.submit()">
                     <c:forEach var="estado" items="${estados}">
                         <option ${estadoSelecionado1==estado?'selected':''}>${estado}</option>
                     </c:forEach>
@@ -45,14 +44,15 @@
                 </select><br>
             </li>
             <li class="list-group-item">
-                <b><label class="dados">População:</label></b><br>
-                <b><label class="dados">Densidade Demográfica:</label></b><br>
-                <b><label class="dados">Área:</label></b><br>
-                <b><label class="dados">Perímetro:</label></b><br>
+                <b><label class="dados">População: ${cidade1.getPopulacao()}</label></b><br>
+                <b><label class="dados">Densidade Demográfica: ${cidade1.getDencidade()}</label></b><br>
+                <b><label class="dados">Área: ${cidade1.getArea()}</label></b><br>
+                <b><label class="dados">Perímetro: ${cidade1.getPerimetro()}</label></b><br>
             </li>
 
         </ul>
     </div>
+    <input type="submit" onclick="gerarParam('GerarSVG')" value="Enviar" class="btn btn-primary" style="height:6%; margin-top: 390px;">
     <div class="col-sm-3">
         <ul class="list-group">
             <li class="list-group-item">
@@ -72,18 +72,21 @@
                 </select><br>
             </li>
             <li class="list-group-item">
-                <b><label class="dados">População:</label></b><br>
-                <b><label class="dados">Densidade Demográfica:</label></b><br>
-                <b><label class="dados">Área:</label></b><br>
-                <b><label class="dados">Perímetro:</label></b><br>
+                <b><label class="dados">População: ${cidade2.getPopulacao()}</label></b><br>
+                <b><label class="dados">Densidade Demográfica: ${cidade2.getDencidade()}</label></b><br>
+                <b><label class="dados">Área: ${cidade2.getArea()}</label></b><br>
+                <b><label class="dados">Perímetro: ${cidade2.getPerimetro()}</label></b><br>
             </li>
 
         </ul>
 
     </div>
+    <input type="text" id="command" name="command" hidden>
+
+
+
 </form>
-
-
+<script src="js/main.js"></script>
 </body>
 
 </html>

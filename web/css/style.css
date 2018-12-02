@@ -10,10 +10,11 @@
     font-size: 18px;
     font-family: 'Comic Sans MS';
 }
-.row{
-    flex-direction: row;
-    justify-content: center;
-}
+/*.row{*/
+    /*flex-direction: row;*/
+    /*!*justify-content: center;*!*/
+/*}*/
 .dados{
     font-size:15px;
 }
+
