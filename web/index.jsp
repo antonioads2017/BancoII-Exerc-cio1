@@ -91,9 +91,9 @@
         <div id="svg">
             <svg viewBox="${viewBox}" width="581" height="200">
                 <path d="${cidade1.getSvg()}" stroke="black" stroke-width="0.005" fill="blue" fill-opacity=""/>
-                <%--<c:forEach var="cidade" items="cidades">--%>
-                    <%--<path d="${cidade.getSvg()}" stroke="black" stroke-width="0.005" fill="gray" fill-opacity=""/>--%>
-                <%--</c:forEach>--%>
+                <c:forEach var="cidade" items="${cidades}">
+                    <path d="${cidade}" stroke="black" stroke-width="0.005" fill="gray" fill-opacity=""/>
+                </c:forEach>
                 <path d="${cidade2.getSvg()}" stroke="black" stroke-width="0.005" fill="green" fill-opacity=""/>
             </svg>
         </div>

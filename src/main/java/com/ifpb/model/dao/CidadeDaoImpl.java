@@ -109,9 +109,9 @@ public class CidadeDaoImpl implements CidadeDao {
     }
 
     @Override
-    public List<Cidade> preencherViewBox(Cidade city1, Cidade city2) throws DataException {
+    public List<String> preencherViewBox(Cidade city1, Cidade city2) throws DataException {
         try {
-            List<Cidade> cidades = new ArrayList<>();
+            List<String> cidades = new ArrayList<>();
             PreparedStatement statement = connection.prepareStatement
                     ("SELECT ST_AsSVG(c3.geom) " +
                             "FROM city c1, city c2, city c3 " +
@@ -123,9 +123,7 @@ public class CidadeDaoImpl implements CidadeDao {
             ResultSet resultSet = statement.executeQuery();
             if(resultSet != null){
                 while(resultSet.next()){
-                    Cidade city = new Cidade();
-                    city.setSvg(resultSet.getString(1));
-                    cidades.add(city);
+                    cidades.add(resultSet.getString(1));
                 }
                 return cidades;
             }

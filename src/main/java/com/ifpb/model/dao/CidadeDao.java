@@ -10,6 +10,6 @@ public interface CidadeDao {
     List<String> buscarNomeDasCidades(String estado) throws DataException;
     Cidade buscarCidade(String cidade, String estado) throws DataException;
     String getViewBox(Cidade city1, Cidade city2) throws DataException;
-    List<Cidade> preencherViewBox(Cidade city1,Cidade city2) throws DataException;
+    List<String> preencherViewBox(Cidade city1,Cidade city2) throws DataException;
 
 }
