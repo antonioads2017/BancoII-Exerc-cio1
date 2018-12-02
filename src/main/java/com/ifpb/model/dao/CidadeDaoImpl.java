@@ -114,12 +114,16 @@ public class CidadeDaoImpl implements CidadeDao {
             List<String> cidades = new ArrayList<>();
             PreparedStatement statement = connection.prepareStatement
                     ("SELECT ST_AsSVG(c3.geom) " +
-                            "FROM city c1, city c2, city c3 " +
+                            "FROM City c1,City c2, City c3 " +
                             "WHERE c1.nome ilike ? AND " +
                             "c2.nome ilike ? AND " +
-                            "ST_Touches(c3.geom,c1.geom) OR ST_Touches(c3.geom,c2.geom)");
+                            "c1.estado_id = ? AND " +
+                            "c2.estado_id = ? AND " +
+                            "ST_Intersects(c3.geom, ST_GeomFromText(ST_AsText(ST_Envelope(ST_Union(c1.geom, c2.geom)))))");
             statement.setString(1,city1.getNome());
             statement.setString(2,city2.getNome());
+            statement.setInt(3,city1.getIdEstado());
+            statement.setInt(4,city2.getIdEstado());
             ResultSet resultSet = statement.executeQuery();
             if(resultSet != null){
                 while(resultSet.next()){

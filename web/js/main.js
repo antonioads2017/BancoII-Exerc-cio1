@@ -1,3 +1,2 @@
-function gerarParam(mensagem) {
-    document.getElementById("command").value = mensagem;
-}
+onmouseover = "Tip('Mensagem')";
+onmouseout = "UnTip()";

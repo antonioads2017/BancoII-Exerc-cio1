@@ -89,12 +89,14 @@
     <div class="col-sm-3">
         <label>Distância Aproximada: ${distancia} km</label><br>
         <div id="svg">
-            <svg viewBox="${viewBox}" width="581" height="200">
-                <path d="${cidade1.getSvg()}" stroke="black" stroke-width="0.005" fill="blue" fill-opacity=""/>
+            <svg viewBox="${viewBox}" width="581" height="500">
+                <path d="${cidade1.getSvg()}" stroke="black" stroke-width="0.005" fill="blue" fill-opacity=""
+                    onmouseover="Tip(${cidade1.getNome()})" onmouseout="UnTip()"/>
                 <c:forEach var="cidade" items="${cidades}">
                     <path d="${cidade}" stroke="black" stroke-width="0.005" fill="gray" fill-opacity=""/>
                 </c:forEach>
-                <path d="${cidade2.getSvg()}" stroke="black" stroke-width="0.005" fill="green" fill-opacity=""/>
+                <path d="${cidade2.getSvg()}" stroke="black" stroke-width="0.005" fill="green" fill-opacity=""
+                      onmouseover="Tip(${cidade1.getNome()})" onmouseout="UnTip()"/>
             </svg>
         </div>
     </div>
