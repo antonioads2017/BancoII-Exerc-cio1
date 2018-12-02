@@ -31,7 +31,7 @@
                 <center><label class="cidade">Cidade 1</label></center>
                 <br>
                 <label class="box">Estado</label>
-                <select name="estado1" class="form-control" onchange="gerarParam('Atualizar');this.form.submit()">
+                <select name="estado1" class="form-control" onchange="this.form.submit()">
                     <c:forEach var="estado" items="${estados}">
                         <option ${estadoSelecionado1==estado?'selected':''}>${estado}</option>
                     </c:forEach>

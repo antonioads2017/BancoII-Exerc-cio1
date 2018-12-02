@@ -93,6 +93,8 @@ public class FrontController extends HttpServlet {
                 if(city1!=null && city2!=null){
                     String viewBox = dao.getViewBox(city1,city2);
                     request.setAttribute("viewBox",viewBox);
+                    float distancia = (float) city1.getGeom().getCentroid().distance(city2.getGeom().getCentroid());
+                    request.setAttribute("distancia",distancia);
                     //List<Cidade> cidades = dao.preencherViewBox(city1,city2);
                     //if(cidades!=null){
                     //    request.setAttribute("cidades",cidades);
