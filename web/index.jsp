@@ -15,7 +15,8 @@
     <title>Atividade SVG e JTS</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="${pageContext.request.contextPath}/css/style.css" />
-    <script src="main.js"></script>
+    <script src="js/jQuery 3.3.1.js"></script>
+    <script src="js/main.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
           crossorigin="anonymous">
 </head>
@@ -25,18 +26,22 @@
 <div class="row"><br>
     <div class="col-sm-3">
         <ul class="list-group">
-            <form action="/" method="post">
+            <form id="form1" action="inicio" method="post">
                 <li class="list-group-item">
                     <center><label class="cidade">Cidade 1</label></center><br>
-                    <label class="estado">Estado</label>
-                    <select class="form-control">
+                    <label class="box">Estado</label>
+                    <select name="estado1" class="form-control" onchange="this.form.submit()" >
                         <option>Paraíba</option>
-                        <option>Pernambuco</option>
+                        <c:forEach var="estado" items="${estados}">
+                            <option>${estado}</option>
+                        </c:forEach>
                     </select>
-                    <label class="estado">Cidade</label>
-                    <select class="form-control">
+                    <label class="box">Cidade</label>
+                    <select name="cidade1" class="form-control" onchange="this.form.submit()" >
                         <option>Conceição</option>
-                        <option>Triunfo</option>
+                        <c:forEach var="cidade" items="${cidades}">
+                            <option>${cidade}</option>
+                        </c:forEach>
                     </select><br>
                 </li>
             </form>
@@ -51,18 +56,22 @@
     </div>
     <div class="col-sm-3">
         <ul class="list-group">
-            <form action="/" method="post">
+            <form id="form2" action="inicio" method="POST">
                 <li class="list-group-item">
                     <center><label class="cidade">Cidade 2</label></center><br>
-                    <label class="estado">Estado</label>
-                    <select class="form-control">
+                    <label class="box">Estado</label>
+                    <select name="estado2" class="form-control" onchange="this.form.submit()" >
                         <option>Paraíba</option>
-                        <option>Pernambuco</option>
+                        <c:forEach var="estado" items="${estados}">
+                            <option>${estado}</option>
+                        </c:forEach>
                     </select>
-                    <label class="estado">Cidade</label>
-                    <select class="form-control">
+                    <label class="box">Cidade</label>
+                    <select name="cidade2" class="form-control" onchange="this.form.submit()" >
                         <option>Conceição</option>
-                        <option>Triunfo</option>
+                        <c:forEach var="cidade" items="${cidades}">
+                            <option>${cidade}</option>
+                        </c:forEach>
                     </select><br>
                 </li>
             </form>
