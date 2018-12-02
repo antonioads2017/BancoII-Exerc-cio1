@@ -53,6 +53,8 @@ public class FrontController extends HttpServlet {
             //para que assim o usuário possa escolher outro.
             List<String> estados = dao.buscarNomesDosEstados();
             request.setAttribute("estados",estados);
+            Cidade city1 = null;
+            Cidade city2 = null;
 
             /*
              -----------------PREENCHENDO OS SELECTS-----------------------
@@ -66,7 +68,7 @@ public class FrontController extends HttpServlet {
                 //Já este if interno vai testar se alguma cidade já foi selecionada. Se já, ele vai trazer
                 //Os dados da cidade direto do banco para exibir na página jsp.
                 if(!cidade1.equals("Selecione uma Cidade")){
-                    Cidade city1 = dao.buscarCidade(cidade1,estado1);
+                    city1 = dao.buscarCidade(cidade1,estado1);
                     if(cidade1 != null){
                         request.setAttribute("cidade1",city1);
                     }
@@ -76,10 +78,25 @@ public class FrontController extends HttpServlet {
                 List<String> cidades2 = dao.buscarNomeDasCidades(estado2);
                 request.setAttribute("cidades2",cidades2);
                 if(!cidade2.equals("Selecione uma Cidade")){
-                    Cidade city2 = dao.buscarCidade(cidade2,estado2);
+                    city2 = dao.buscarCidade(cidade2,estado2);
                     if(cidade2 != null){
                         request.setAttribute("cidade2",city2);
                     }
+                }
+            }
+
+            /*
+            ----------------PREENCHENDO SVG-------------------------------
+             */
+
+            if(!cidade1.equals("Selecione uma cidade") && !cidade2.equals("Selecione uma cidade")){
+                if(city1!=null && city2!=null){
+                    String viewBox = dao.getViewBox(city1,city2);
+                    request.setAttribute("viewBox",viewBox);
+                    //List<Cidade> cidades = dao.preencherViewBox(city1,city2);
+                    //if(cidades!=null){
+                    //    request.setAttribute("cidades",cidades);
+                    //}
                 }
             }
             request.getRequestDispatcher("index.jsp").forward(request, response);

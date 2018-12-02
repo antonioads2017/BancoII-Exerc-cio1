@@ -92,7 +92,7 @@ public class CidadeDaoImpl implements CidadeDao {
     public String getViewBox(Cidade city1, Cidade city2) throws DataException {
         try {
             PreparedStatement statement = connection.prepareStatement
-                    ("Select getviewbox(?,?,?,?)");
+                    ("SELECT getViewBox(?,?,?,?)");
             statement.setString(1,city1.getNome());
             statement.setString(2,city2.getNome());
             statement.setInt(3,city1.getIdEstado());
@@ -103,6 +103,35 @@ public class CidadeDaoImpl implements CidadeDao {
             }
             return "";
         } catch (SQLException e) {
+            e.printStackTrace();
+            throw new DataException("Falha ao realizar a consulta SQL");
+        }
+    }
+
+    @Override
+    public List<Cidade> preencherViewBox(Cidade city1, Cidade city2) throws DataException {
+        try {
+            List<Cidade> cidades = new ArrayList<>();
+            PreparedStatement statement = connection.prepareStatement
+                    ("SELECT ST_AsSVG(c3.geom) " +
+                            "FROM city c1, city c2, city c3 " +
+                            "WHERE c1.nome ilike ? AND " +
+                            "c2.nome ilike ? AND " +
+                            "ST_Touches(c3.geom,c1.geom) OR ST_Touches(c3.geom,c2.geom)");
+            statement.setString(1,city1.getNome());
+            statement.setString(2,city2.getNome());
+            ResultSet resultSet = statement.executeQuery();
+            if(resultSet != null){
+                while(resultSet.next()){
+                    Cidade city = new Cidade();
+                    city.setSvg(resultSet.getString(1));
+                    cidades.add(city);
+                }
+                return cidades;
+            }
+            return null;
+        } catch (SQLException e) {
+            e.printStackTrace();
             throw new DataException("Falha ao realizar a consulta SQL");
         }
     }
