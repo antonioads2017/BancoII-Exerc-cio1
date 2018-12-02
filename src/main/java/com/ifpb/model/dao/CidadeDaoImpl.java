@@ -90,6 +90,20 @@ public class CidadeDaoImpl implements CidadeDao {
     }
 
     public String getViewBox(Cidade city1, Cidade city2) throws DataException {
-        return null;
+        try {
+            PreparedStatement statement = connection.prepareStatement
+                    ("Select getviewbox(?,?,?,?)");
+            statement.setString(1,city1.getNome());
+            statement.setString(2,city2.getNome());
+            statement.setInt(3,city1.getIdEstado());
+            statement.setInt(4,city2.getIdEstado());
+            ResultSet resultSet = statement.executeQuery();
+            if(resultSet != null && resultSet.next()){
+                return resultSet.getString(1);
+            }
+            return "";
+        } catch (SQLException e) {
+            throw new DataException("Falha ao realizar a consulta SQL");
+        }
     }
 }

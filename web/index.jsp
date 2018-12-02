@@ -35,12 +35,14 @@
                     <c:forEach var="estado" items="${estados}">
                         <option ${estadoSelecionado1==estado?'selected':''}>${estado}</option>
                     </c:forEach>
+                    <option>Selecione um Estado</option>
                 </select>
                 <label class="box">Cidade</label>
                 <select name="cidade1" class="form-control" onchange="this.form.submit()">
                     <c:forEach var="cidade" items="${cidades1}">
                         <option ${cidadeSelecionada1==cidade?'selected':''}>${cidade}</option>
                     </c:forEach>
+                    <option>Selecione uma Cidade</option>
                 </select><br>
             </li>
             <li class="list-group-item">
@@ -52,7 +54,7 @@
 
         </ul>
     </div>
-    <input type="submit" onclick="gerarParam('GerarSVG')" value="Enviar" class="btn btn-primary" style="height:6%; margin-top: 390px;">
+    <%--<input type="submit" onclick="gerarParam('GerarSVG')" value="Enviar" class="btn btn-primary" style="height:6%; margin-top: 390px;">--%>
     <div class="col-sm-3">
         <ul class="list-group">
             <li class="list-group-item">
@@ -63,12 +65,14 @@
                     <c:forEach var="estado" items="${estados}">
                         <option ${estadoSelecionado2==estado?'selected':''}>${estado}</option>
                     </c:forEach>
+                    <option>Selecione um Estado</option>
                 </select>
                 <label class="box">Cidade</label>
                 <select name="cidade2" class="form-control" onchange="this.form.submit()">
                     <c:forEach var="cidade" items="${cidades2}">
                         <option ${cidadeSelecionada2==cidade?'selected':''}>${cidade}</option>
                     </c:forEach>
+                    <option>Selecione uma Cidade</option>
                 </select><br>
             </li>
             <li class="list-group-item">
@@ -81,10 +85,8 @@
         </ul>
 
     </div>
-    <input type="text" id="command" name="command" hidden>
-
-
-
+    <%--<input type="text" id="command" name="command" hidden>--%>
+    
 </form>
 <script src="js/main.js"></script>
 </body>
