@@ -32,24 +32,24 @@
                 <br>
                 <label class="box">Estado</label>
                 <select name="estado1" class="form-control" onchange="this.form.submit()">
+                    <option>Selecione um Estado</option>
                     <c:forEach var="estado" items="${estados}">
                         <option ${estadoSelecionado1==estado?'selected':''}>${estado}</option>
                     </c:forEach>
-                    <option>Selecione um Estado</option>
                 </select>
                 <label class="box">Cidade</label>
                 <select name="cidade1" class="form-control" onchange="this.form.submit()">
+                    <option>Selecione uma Cidade</option>
                     <c:forEach var="cidade" items="${cidades1}">
                         <option ${cidadeSelecionada1==cidade?'selected':''}>${cidade}</option>
                     </c:forEach>
-                    <option>Selecione uma Cidade</option>
                 </select><br>
             </li>
             <li class="list-group-item">
-                <b><label class="dados">População: ${cidade1.getPopulacao()}</label></b><br>
-                <b><label class="dados">Densidade Demográfica: ${cidade1.getDencidade()}</label></b><br>
-                <b><label class="dados">Área: ${cidade1.getArea()}</label></b><br>
-                <b><label class="dados">Perímetro: ${cidade1.getPerimetro()}</label></b><br>
+                <b><label class="dados">População: ${cidade1.getPopulacao()} habitantes</label></b><br>
+                <b><label class="dados">Densidade Demográfica: ${cidade1.getDencidade()} hab./km²</label></b><br>
+                <b><label class="dados">Área: ${cidade1.getArea()} km²</label></b><br>
+                <b><label class="dados">Perímetro: ${cidade1.getPerimetro()} km</label></b><br>
             </li>
 
         </ul>
@@ -62,27 +62,28 @@
                 <br>
                 <label class="box">Estado</label>
                 <select name="estado2" class="form-control" onchange="this.form.submit()">
+                    <option>Selecione um Estado</option>
                     <c:forEach var="estado" items="${estados}">
                         <option ${estadoSelecionado2==estado?'selected':''}>${estado}</option>
                     </c:forEach>
-                    <option>Selecione um Estado</option>
                 </select>
                 <label class="box">Cidade</label>
                 <select name="cidade2" class="form-control" onchange="this.form.submit()">
+                    <option>Selecione uma Cidade</option>
                     <c:forEach var="cidade" items="${cidades2}">
                         <option ${cidadeSelecionada2==cidade?'selected':''}>${cidade}</option>
                     </c:forEach>
-                    <option>Selecione uma Cidade</option>
                 </select><br>
             </li>
             <li class="list-group-item">
-                <b><label class="dados">População: ${cidade2.getPopulacao()}</label></b><br>
-                <b><label class="dados">Densidade Demográfica: ${cidade2.getDencidade()}</label></b><br>
-                <b><label class="dados">Área: ${cidade2.getArea()}</label></b><br>
-                <b><label class="dados">Perímetro: ${cidade2.getPerimetro()}</label></b><br>
+                <b><label class="dados">População: ${cidade2.getPopulacao()} habitantes</label></b><br>
+                <b><label class="dados">Densidade Demográfica: ${cidade2.getDencidade()} hab./km²</label></b><br>
+                <b><label class="dados">Área: ${cidade2.getArea()} km²</label></b><br>
+                <b><label class="dados">Perímetro: ${cidade2.getPerimetro()} km</label></b><br>
             </li>
 
         </ul>
+
 
     </div>
     <%--<input type="text" id="command" name="command" hidden>--%>
@@ -101,7 +102,7 @@
         </div>
     </div>
 </form>
-
+<label>Projeto Desenvolvido por <a href="https://github.com/MailsonD">Mailson Dennis</a> e <a href="https://github.com/antonioads2017">Antonio Miguel</a> </label>
 <script src="js/main.js"></script>
 </body>
 

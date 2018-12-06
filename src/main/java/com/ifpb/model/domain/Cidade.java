@@ -57,7 +57,7 @@ public class Cidade {
     }
 
     public float getArea() {
-        return area;
+        return (area*40075/360)*100;
     }
 
     public void setArea(float area) {
@@ -73,11 +73,11 @@ public class Cidade {
     }
 
     public float getPerimetro(){
-        return (float) geom.getLength();
+        return (float) geom.getLength()*100;
     }
 
-    public float getDencidade(){
-        return populacao/area;
+    public int getDencidade(){
+        return populacao/(int)getArea();
     }
 
     @Override
